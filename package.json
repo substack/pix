@@ -1,9 +1,17 @@
 {
-    "name" : "pix",
-    "version" : "0.0.0",
-    "subdomain" : "pix",
-    "dependencies" : {
-        "picture-tube" : "~0.0.3",
-        "request" : "2.9.x"
-    }
+  "name": "pix",
+  "version": "0.0.0-2",
+  "subdomain": "pix",
+  "dependencies": {
+    "picture-tube": "~0.0.3",
+    "request": "2.9.x",
+    "optimist" : "~0.3.4",
+    "event-stream" : "~0.9.8"
+  },
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": ">=0.4"
+  }
 }
