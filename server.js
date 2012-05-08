@@ -13,7 +13,10 @@ function worker (params) {
         return acc.concat('--' + key, String(acc[key]));
     }, []);
     
-    var to = setTimeout(function () { ps.kill() }, 5000);
+    var to = setTimeout(function () {
+        ps.stdout.emit('data', 'PIXIFICATION TOOK TOO LONG\r\n');
+        ps.kill();
+    }, 5000);
     
     var ps = spawn('node', [ __dirname + '/worker.js' ].concat(args));
     ps.on('exit', function () {
