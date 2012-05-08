@@ -12,13 +12,16 @@ function worker (params) {
     var args = Object.keys(params).reduce(function (acc, key) {
         return acc.concat('--' + key, String(acc[key]));
     }, []);
+    args.unshift(__dirname + '/worker.js');
     
     var to = setTimeout(function () {
         ps.stdout.emit('data', 'PIXIFICATION TOOK TOO LONG\r\n');
-        ps.kill();
-    }, 5000);
+        process.nextTick(function () {
+            ps.kill();
+        });
+    }, 10 * 1000);
     
-    var ps = spawn('node', [ __dirname + '/worker.js' ].concat(args));
+    var ps = spawn(process.execPath, args);
     ps.on('exit', function () {
         clearTimeout(to);
     });
