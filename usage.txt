@@ -1,0 +1,12 @@
+pix - render png images as 256 color ansi streams over http.
+
+usage:
+
+  render a local file:
+
+    curl -sSNT robot.png http://pix.jit.su
+
+  render an image from a uri:
+
+    curl -sSN http://pix.jit.su/?uri=http://substack.net/images/pony.png
+

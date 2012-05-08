@@ -1,0 +1,9 @@
+{
+    "name" : "pix",
+    "version" : "0.0.0",
+    "subdomain" : "pix",
+    "dependencies" : {
+        "picture-tube" : "~0.0.3",
+        "request" : "2.9.x"
+    }
+}
