@@ -21,7 +21,7 @@ function worker (params) {
         });
     }, 10 * 1000);
     
-    var ps = spawn(process.execPath, args);
+    var ps = spawn('node', args);
     ps.on('exit', function () {
         clearTimeout(to);
     });
@@ -35,11 +35,11 @@ var server = http.createServer(function (req, res) {
     ));
     
     if (req.method === 'GET' && req.url === '/') {
-        res.writeHead(200, { 'content-type' : 'text/plain' });
+        res.setHeader('content-type', 'text/plain');
         fs.createReadStream(__dirname + '/usage.txt').pipe(res);
     }
     else if (req.method === 'PUT') {
-        res.writeHead(200, { 'content-type' : 'text/ansi' });
+        res.setHeader('content-type', 'text/ansi');
         
         var w = worker(params);
         w.pipe(res);

@@ -1,6 +1,6 @@
 {
   "name": "pix",
-  "version": "0.0.0-5",
+  "version": "0.0.0-8",
   "subdomain": "pix",
   "dependencies": {
     "picture-tube": "~0.0.3",
