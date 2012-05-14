@@ -21,7 +21,7 @@ function worker (params) {
         });
     }, 10 * 1000);
     
-    var ps = spawn('node', args);
+    var ps = spawn(process.execPath, args, { env : {} });
     ps.on('exit', function () {
         clearTimeout(to);
     });
