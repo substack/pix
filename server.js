@@ -19,7 +19,7 @@ function worker (params) {
         process.nextTick(function () {
             ps.kill();
         });
-    }, 10 * 1000);
+    }, 5 * 1000);
     
     var ps = spawn(process.execPath, args, { env : {} });
     ps.on('exit', function () {
